@@ -51,7 +51,7 @@ Thus, the objectives are:
 
 In this section, NAO target finding will find its target by subscribing to its camera.
 
-This can be seen in 'target_finding.py'
+This can be seen in `target_finding.py`
 
 At first NAO subs
 
