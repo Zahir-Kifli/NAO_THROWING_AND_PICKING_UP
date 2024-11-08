@@ -24,25 +24,37 @@ Created from University Brunei Darussalam (UBD) Students:
 - 21B4059
 - 22B6011
 
-This code is part of an assignment for the module Intelligent Systems Lab, ZA-3201. Where the programming Language used was python. The code involves a humanoid robot called "NAO" from Aldebaran. It can be used to do various tasks or to used as it is with its default programmed settings. 
+This code is part of an assignment for the module Intelligent Systems Lab, ZA-3201. Where the programming Language used was python. The code involves a humanoid robot called "NAO" from Aldebaran. NAO can be used to do various tasks or to used as it is with its default programmed settings. 
 
 --
 
 2. ## Overview
 
+In this project, NAO will perform a programmed sequence that involves grasping a soft ball, moving its arm to simulate a throwing motion, and releasing the ball towards a designated target area. This project will highlight NAO's capabilities in movement and interaction using Python programming.
+
+Thus, the objectives are
+1. NAO to reach and grab a ball
+2. NAO to find a designated target
+3. NAO to throw the ball to the target
+
 ---
+
 3. ## Project Files Description
 
 ---
+
 4. ## Getting Started
 
 ---
+
 5. ## Target Finding
 
 ---
+
 6. ## Picking Up
 
 ---
+
 7. ## Reference
 
 
