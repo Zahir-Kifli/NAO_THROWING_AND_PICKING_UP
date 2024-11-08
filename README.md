@@ -53,7 +53,10 @@ In this section, NAO target finding will find its target by subscribing to its c
 
 This can be seen in `target_finding.py`
 
-At first NAO subs
+At first NAO subscribes to the camera by subscribing to ALVideoDevice which need NAO's IP and Port:
+{
+video_proxy = ALProxy("ALVideoDevice", robotIP, PORT)
+}
 
 ---
 
