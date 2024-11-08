@@ -15,10 +15,9 @@
 6. [Picking up](#Picking-Up)
 7. [Reference](Reference)
 
+![image](https://github.com/user-attachments/assets/41d2e298-9fca-4d0a-b431-abee4294c83c)
 
-<div style="border: 0; height: 5px; background-color: Red; margin: 20px 0;">
-
-
+---
 
 1. ## About This Project
 
