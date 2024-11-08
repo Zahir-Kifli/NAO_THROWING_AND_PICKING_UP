@@ -9,11 +9,11 @@
 # **CONTENTS**
 1. [About This Project](#About-This-Project)
 2. [Overview](#Overview)
-3. [Project Files Description](#Projet-Files-Description)
+3. [Project Files Description](#Project-Files-Description)
 4. [Getting Started](#Getting-Started)
 5. [Target Finding](#Target-Findng)
 6. [Picking up](#Picking-Up)
-7. [Overall Code](Overall-Code)
+7. [Overall Code](#Overall-Code)
 
 <hr style="border: 0; height: 5px; background-color: #f0f0f0; margin: 20px 0;">
 
@@ -49,7 +49,7 @@ Thus, the objectives are:
 
 5. ## Target Finding
 
-In this section, NAO target finding will find its target by subscribing to its camera.
+In this section, NAO target finding will find its target by subscribing to its camera. This is stand alone version of the target finding. Addtionally, for this code, the target has been set to a green board with 40 cm width. By using Opencv library, this code uses HSV values to retrieve the target from NAO's camera.
 
 This can be seen in `target_finding.py`
 
