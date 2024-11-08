@@ -14,28 +14,28 @@
 5. [Target Finding](#Target-Findng)
 6. [Picking up](#Picking-Up)
 7. [Reference](Reference)
-<div style="height: 1px; background-color: white; margin: 20px 0;"></div>
+<div style="height: 2px; background-color: white; margin: 20px 0;"></div>
 
 
-1. ##About This Project
-
----
-2. ##Overview
+1. ## About This Project
 
 ---
-3. ##Project Files Description
+2. ## Overview
 
 ---
-4. ##Getting Started
+3. ## Project Files Description
 
 ---
-5. ##Target Finding
+4. ## Getting Started
 
 ---
-6. ##Picking Up
+5. ## Target Finding
 
 ---
-7. ##References
+6. ## Picking Up
+
+---
+7. ## References
 
 
 
