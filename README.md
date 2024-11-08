@@ -49,7 +49,7 @@ Thus, the objectives are:
 
 5. ## Target Finding
 
-In this section, NAO target finding will find its target by subscribing to its camera. This is stand alone version of the target finding. Addtionally, for this code, the target has been set to a green board with 40 cm width. By using Opencv library, this code uses HSV values to retrieve the target from NAO's camera.
+In this section, a stand alone verison of NAO target finding function will be explained which will have the same application to the overall full code. Addtionally, for this code, the target has been set to a green board with 40 cm width. By using Opencv library, this code uses HSV values to retrieve the target from NAO's camera.
 
 This can be seen in `target_finding.py`
 
