@@ -49,9 +49,9 @@ Thus, the objectives are:
 
 5. ## Target Finding
 
-In this section, a stand alone verison of NAO target finding function will be explained which will have the same application to the overall full code. Addtionally, for this code, the target has been set to a green board with 40 cm width. By using Opencv library, this code uses HSV values to retrieve the target from NAO's camera.
+In this section, NAO's target finding function will be explained. For this code, the target has been set to a green board with 40 cm width. By using Opencv library, this code uses HSV values to retrieve the target from NAO's camera.
 
-This can be seen in `target_finding.py`
+A stand alone verison can be seen in `target_finding.py`
 
 At first NAO subscribes to the camera by subscribing to ALVideoDevice which need NAO's IP and Port:
 ```py
@@ -70,6 +70,15 @@ Then the video parameters needs to be setup:
 
     # Subscribe to video feed with specified parameters
     videoClient = video_proxy.subscribe("python_client", resolution, colorSpace, fps)
+```
+
+before any process occurs, lists are initilized to store multiple values that will be obtained in this function.
+
+```py
+        # Initialize lists to store multiple detections for averaging
+        green_detections = []    # Store distances to green objects
+        target_counts = []       # Store count of green objects found
+        center_x_positions = []  # Store horizontal positions of objects
 ```
 
 with this, we then need to extract the image dimensions from NAO's image data
@@ -101,7 +110,7 @@ With the HSV space obtained, it will be fitted into a specified range of color .
         mask = cv2.inRange(hsv, lower_green, upper_green)
 ```
 
-After we get the pixels, the contours are identified and filtered to get a better result of the target. Furthermore, when the largest contour that is found the area,centerpoint and distance is calculated.
+After we get the pixels, the contours are identified, counted and filtered to get a better result of the target. Furthermore, when the largest contour that is found the area,centerpoint and distance is calculated. This also applies to the other small contours.
 
 **Where distance is the distance between NAO and the target**
 
@@ -141,11 +150,25 @@ where:
 - `800` is a scaling factor related to the camera setup.
 - `apparent_width` is the measured width the largest pixel.
 
-Lastly, unsubscribe to the camera to control usage of NAO's camera
+After all the calculation is done, we need to unsubscribe to the camera to control usage of NAO's camera to avoid NAO heating up.
 
 ```py
     # Clean up video subscription
     video_proxy.unsubscribe(videoClient)
+```
+
+With all the values, its median is obtain by using the numpy tool to enchance the result to find the target. If there is no value is obtained, then the code will return 0,0,0 for all the values
+
+```py
+        # If we have valid detections, return median values
+        if green_detections and center_x_positions:
+            final_distance = np.median(green_detections)
+            final_count = int(np.median(target_counts))
+            final_center_x = np.median(center_x_positions)
+            return True, final_distance, final_count, final_center_x
+        
+        # Return default values if no detection
+        return False, 0, 0, 0
 ```
 
 ---
