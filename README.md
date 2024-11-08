@@ -186,6 +186,52 @@ With all the values, its median is obtain by using the numpy tool to enchance th
 
 8. ## Aligning With Target Function
 
+In this section, the NAO's code for aligning with the target will be discussed. NAO moves with a tolerance of 10% if it is not aligned with the target. This tolerance is the threshold to determine if NAO is centered enough with the target. IF NAO is centered it say *Target is centered*.
+
+**The tolerance can be adjusted for less or more precise alignment**
+
+```py
+       if abs(center_x) < 0.1:  # Target is centered (within 10% tolerance)
+            tts_proxy.say("Target is centered")
+            return True
+```
+
+Thus, this means if NAO is not within this threshold, NAO will adjust and announce if the target is on his left or right by using `motion_proxy.moveTo(0, 0, turn_angle)` and checking if the center_x is bigger than 0.
+
+This means:
+- 1 corresponds to the target being on the right
+- 0 corresponds to the target being centered
+- -1 corresponds to the target being on the left
+
+The turn_angle is calculated by multiplying the calculated center of target (center_x) from the target finding function with 0.2. 0.2 is in radians which in degree is 11.5 degrees. This value is the limiter for turning NAO.
+
+**0.2 is used for safety of NAO and its motor which prevents aggressive turning and destabilization** 
+
+```py
+        # Calculate turn angle based on center_x (-1 to 1)
+        turn_angle = center_x * 0.2  # Max 0.2 radians turn
+        
+        # Announce direction
+        if center_x > 0:
+            tts_proxy.say("Target is to my right. Adjusting")
+        else:
+            tts_proxy.say("Target is to my left. Adjusting")
+        
+        # Turn to align with target
+        motion_proxy.moveTo(0, 0, turn_angle)
+        time.sleep(0.5)
+        return True
+```
+
+if there was any error on this function, the function will return False, thus, in the main function, it will cause NAO to go to rest mode.
+
+```py
+    except Exception as e:
+        print("Error in alignment:", e)
+        return False
+```
+
+
 ---
 
 9. ## Main Function
