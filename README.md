@@ -7,7 +7,7 @@
 ---
 
 # **CONTENTS**
-1. [About This Project]
+1. # About This Project
 ---
 1. <a name="About This Project" />
 
