@@ -16,19 +16,19 @@
 7. [Reference](Reference)
 
 
-<hr style="border: 0; height: 5px; background-color: white; margin: 20px 0;">
+<hr style="border: 0; height: 5px; background-color: Red; margin: 20px 0;">
 
 
 
 1. ## About This Project
----
+
 Created from University Brunei Darussalam (UBD) Students:
 - 21B4059
 - 22B6011
 
 This code is part of an assignment for the module Intelligent Systems Lab, ZA-3201. Where the programming Language used was python. The code involves a humanoid robot called "NAO" from Aldebaran. It can be used to do various tasks or to used as it is with its default programmed settings. 
 
-
+--
 2. ## Overview
 
 ---
