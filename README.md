@@ -32,7 +32,7 @@ This code is part of an assignment for the module Intelligent Systems Lab, ZA-32
 
 In this project, NAO will perform a programmed sequence that involves grasping a soft ball, moving its arm to simulate a throwing motion, and releasing the ball towards a designated target area. This project will highlight NAO's capabilities in movement and interaction using Python programming.
 
-Thus, the objectives are
+Thus, the objectives are:
 1. NAO to reach and grab a ball
 2. NAO to find a designated target
 3. NAO to throw the ball to the target
