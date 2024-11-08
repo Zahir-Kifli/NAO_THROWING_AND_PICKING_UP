@@ -4,6 +4,6 @@
   <img src="https://github.com/user-attachments/assets/6fb66904-c973-4e02-b37a-a3b642910db3" alt="Description" width="300"/>
 </div>
 
-<hr style="border: 0; height: 1px; background-color: white; margin: 20px 0;">
+---
 
 
