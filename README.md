@@ -7,35 +7,34 @@
 ---
 
 # **CONTENTS**
-1. [About This Project]
-2. [Overview]
-3. [Project Files Description]
-4. [Getting Started]
-5. [Target Finding]
-6. [Picking up]
-7. [Reference]
+1. [About This Project](#About-This-Project)
+2. [Overview](#Overview)
+3. [Project Files Description](#Projet-Files-Description)
+4. [Getting Started](#Getting Started)
+5. [Target Finding](#Target-Findng)
+6. [Picking up](#Picking-Up)
+7. [Reference](Reference)
 ---
-1. <a name="About This Project" />
-
----
-2. <a name="Overview" />
+1. ##About This Project
 
 ---
-3. <a name="Project Files Description" />
+2. ##Overview
 
 ---
-4. <a name="Getting Started" />
+3. ##Project Files Description
 
 ---
-5. <a name="Target Finding" />
+4. ##Getting Started
 
 ---
-6. <a name="Picking Up" />
+5. ##Target Finding
 
 ---
-7. <g name="References" />
+6. ##Picking Up
+
+---
+7. ##References
 
 
 
 
-#**About This Project**
