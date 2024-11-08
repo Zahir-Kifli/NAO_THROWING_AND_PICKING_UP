@@ -49,6 +49,12 @@ Thus, the objectives are:
 
 5. ## Target Finding
 
+In this section, NAO target finding will find its target by subscribing to its camera.
+
+This can be seen in (taruh kn code sini)
+
+At first NAO subs
+
 ---
 
 6. ## Picking Up
