@@ -10,7 +10,7 @@
 1. [About This Project](#About-This-Project)
 2. [Overview](#Overview)
 3. [Project Files Description](#Projet-Files-Description)
-4. [Getting Started](#Getting Started)
+4. [Getting Started](#Getting-Started)
 5. [Target Finding](#Target-Findng)
 6. [Picking up](#Picking-Up)
 7. [Reference](Reference)
