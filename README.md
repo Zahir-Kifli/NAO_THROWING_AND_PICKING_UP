@@ -18,19 +18,19 @@
 1. <a name="About This Project" />
 
 ---
-2. <b name="Overview" />
+2. <a name="Overview" />
 
 ---
-3. <c name="Project Files Description" />
+3. <a name="Project Files Description" />
 
 ---
-4. <d name="Getting Started" />
+4. <a name="Getting Started" />
 
 ---
-5. <e name="Target Finding" />
+5. <a name="Target Finding" />
 
 ---
-6. <f name="Picking Up" />
+6. <a name="Picking Up" />
 
 ---
 7. <g name="References" />
