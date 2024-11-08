@@ -16,7 +16,7 @@
 7. [Throwing Parameters Function](#Throwing-Parameters-Function)
 8. [Aligning With Target Function](#Aligning-With-Target-Function)
 9. [Main Function](#Main-Function)
-10. [Overall Code](#Overall-Code)
+
 
 <hr style="border: 0; height: 5px; background-color: #f0f0f0; margin: 20px 0;">
 
@@ -190,7 +190,7 @@ With all the values, its median is obtain by using the numpy tool to enchance th
 
 9. ## Main Function
 
-In this section, all the function will be connected by calling at its sequence so that NAO will do all its motion in one go. In this main function is also the throwing stance and action. 
+In this section, all the function will be connected by calling it in order so that NAO will do all its motion in one go. Additonally, in this function, it also includes the throwing stance and action. 
 
 To begin, all the necessary modules are initilized which are required in order for the other function to work.
 
@@ -202,13 +202,151 @@ To begin, all the necessary modules are initilized which are required in order f
 ```
 Then, initially NAO will wake up from its rest and go its ready posture while looking down. The aim for for looking down is so that it can find the target better as it is on the ground.
 
-**The head can be programmed to look forward at any angle that are possible**
+**The head can be programmed to look at any angle that are possible**
 
-Then, NAO will say *Looking for the green target* and call the target finding function, where in this code its called the ` detect_green_target(video_proxy)`
+Then, NAO will say *Looking for the green target* and call the target finding function, where in this code its called the ` detect_green_target(video_proxy)` . If the target is not found, NAO will go back to rest. NAO will also say the target distance as calculated from the target finding function.
 
----
+```py
+        tts_proxy.say("Looking for the green target")
+        found, distance, target_count, center_x = detect_green_target(video_proxy)
 
-10. ## Overall Code
+        if not found:
+            tts_proxy.say("Cannot find the green target")
+            motion_proxy.rest()
+            return
+
+        # Announce target and distance
+        tts_proxy.say("I found the green target at approximately {} centimeters".format(int(distance)))
+
+```
+Then after NAO finishes its sentence, it will begin to align itself with the target by calling the aligning with target function , `align_with_target`. If NAO could not align with the target, it will simply go back to rest
+
+```py
+       # Align with target
+        if not align_with_target(motion_proxy, tts_proxy, center_x):
+            tts_proxy.say("Failed to align with target")
+            motion_proxy.rest()
+            return
+
+```
+After aligning, NAO will being to move to the throwing stance. It will set his wrist backwards, hold the ball securely, look up and spread his legs. NAO will maintain the stance for 2 seconds after getting to it for stability.
+
+**CAUTION: DO OBSERVE NAO'S MOVEMENTS AND AVOID IT FALLING**
+
+```py
+        # Set the wrist to face backwards
+        motion_proxy.setStiffnesses("LWristYaw", 1.0)    
+        motion_proxy.setAngles("LWristYaw", 2.0, 0.2)
+
+
+        # Close the hand to ensure the ball is held securely
+        motion_proxy.setStiffnesses("LHand", 1.0)
+        motion_proxy.setAngles("LHand", 0.0, 0.2)
+        time.sleep(0.5)
+
+        # Prepare throwing stance
+        tts_proxy.say("Preparing throwing stance")
+        
+        # Set stiffness to the whole body
+        motion_proxy.setStiffnesses("Body", 1.0)
+
+        # Define the target angles for a stable throwing stance
+        # These angles are in radians
+        target_angles = {
+            "HeadPitch": 0.3,       # Head slightly up
+            "LShoulderPitch": 1.5,  # Left shoulder raised
+            "LShoulderRoll": 0.3,   # Left shoulder slightly outward
+            "LElbowYaw": -1.2,      # Left elbow inward
+            "LElbowRoll": -0.5,     # Left elbow bent
+            "LWristYaw": 0.3,       # Left wrist adjusted
+            "RShoulderPitch": 1.5,  # Right shoulder raised
+            "RShoulderRoll": -0.3,  # Right shoulder slightly outward
+            "RElbowYaw": 1.2,       # Right elbow inward
+            "RElbowRoll": 0.5,      # Right elbow bent
+            "RWristYaw": -0.3,      # Right wrist adjusted
+            "LHipYawPitch": -0.3,   # Left leg outward
+            "LHipRoll": 0.1,        # Left hip roll
+            "LHipPitch": -0.4,      # Left hip pitch
+            "LKneePitch": 0.7,      # Left knee bent
+            "LAnklePitch": -0.3,    # Left ankle pitch
+            "LAnkleRoll": -0.1,     # Left ankle roll
+            "RHipYawPitch": -0.3,   # Right leg outward
+            "RHipRoll": -0.1,       # Right hip roll
+            "RHipPitch": -0.4,      # Right hip pitch
+            "RKneePitch": 0.7,      # Right knee bent
+            "RAnklePitch": -0.3,    # Right ankle pitch
+            "RAnkleRoll": 0.1       # Right ankle roll
+        }
+
+        # Set the fraction of maximum speed for the movement
+        fraction_max_speed = 0.1  # Move slowly to maintain balance
+
+        # Apply the target angles
+        for joint_name, angle in target_angles.items():
+            motion_proxy.setAngles(joint_name, angle, fraction_max_speed)
+            time.sleep(0.1)  # Small delay to ensure smooth movement
+
+        # Delay for 2 seconds to maintain the pose
+        time.sleep(2.0)
+```
+Then the throwing parameters are called, this is to enable NAO to swing his left arm according to the distance between itself and the target. NAO will then get his arm ready to throw. Before throwing, NAO will also tell its speed percentage. The throw motion is coded with the smallest possible value of time to make it quick resembling a catapult throw.
+
+```py
+        # Calculate throw parameters based on distance and target position
+        shoulder_pitch, speed_percentage = calculate_throw_parameters(distance)
+
+        # Prepare throwing position
+        motion_proxy.setAngles("LShoulderPitch", -3.0, 1.0)
+        motion_proxy.setAngles("LShoulderRoll", 0, 1.0)    
+        motion_proxy.setAngles("LElbowRoll", 0.0, 1.0)
+        motion_proxy.closeHand("LHand")
+        motion_proxy.setStiffnesses("LWristYaw", 1.0)    
+        motion_proxy.setAngles("LWristYaw", 1.0, 0.1)  # Set wrist based on target         
+        time.sleep(0.5)
+
+        # Execute throw
+        tts_proxy.say("Throwing at {} percent power".format(speed_percentage))
+
+        motion_proxy.setAngles("LElbowRoll", -1.0, 1.0)
+        motion_proxy.setAngles("LShoulderPitch", -3.0, 1.0)
+        time.sleep(0.1)
+       
+        # Explosive throw
+        # Shoulder pitch is moved according to the distance and using maximum speed
+        motion_proxy.setAngles("LShoulderPitch", shoulder_pitch, 1.0)
+        motion_proxy.setAngles("LElbowRoll", 0.0, 1.0)
+        motion_proxy.setAngles("LShoulderRoll", 0.0, 1.0)
+
+        # Quick release
+        time.sleep(0.1)
+        motion_proxy.setStiffnesses("LHand", 1.0)
+        motion_proxy.setAngles("LHand", 1.0, 1.0)
+```
+
+Lastly, NAO's arm will be returned back to set angle so that it can go to its standing position and then back to rest mode.
+
+```py
+        # Recovery with stance
+        motion_proxy.setAngles("LShoulderPitch", 1.0, 0.5)  # Lower arm slowly
+        time.sleep(0.3)
+        
+        # Return to safe position
+        posture_proxy.goToPosture("StandInit", 0.5)
+        motion_proxy.rest()
+```
+
+If there is any error on the flow of the main code, NAO will simply go to rest.
+
+```py
+    except Exception as e:
+        print("An error occurred:", e)
+        try:
+            motion_proxy.rest()
+        except:
+            pass
+```
+
+
 
 
 
