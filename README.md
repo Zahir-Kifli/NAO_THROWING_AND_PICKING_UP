@@ -11,9 +11,12 @@
 2. [Overview](#Overview)
 3. [Project Files Description](#Project-Files-Description)
 4. [Getting Started](#Getting-Started)
-5. [Target Finding](#Target-Findng)
-6. [Picking up](#Picking-Up)
-7. [Overall Code](#Overall-Code)
+5. [Picking Up Function](#Picking-Up-Function)
+6. [Target Finding Function](#Target-Findng-Function)
+7. [Throwing Parameters Function](#Throwing-Parameters-Function)
+8. [Aligning With Target Function](#Aligning-With-Target-Function)
+9. [Main Function](#Main-Function)
+10. [Overall Code](#Overall-Code)
 
 <hr style="border: 0; height: 5px; background-color: #f0f0f0; margin: 20px 0;">
 
@@ -47,7 +50,11 @@ Thus, the objectives are:
 
 ---
 
-5. ## Target Finding
+5. ## Picking Up Function
+
+---
+
+6. ## Target Finding Function
 
 In this section, NAO's target finding function will be explained. For this code, the target has been set to a green board with 40 cm width. By using Opencv library, this code uses HSV values to retrieve the target from NAO's camera.
 
@@ -173,11 +180,35 @@ With all the values, its median is obtain by using the numpy tool to enchance th
 
 ---
 
-6. ## Picking Up
+7. ## Throwing Parameters Function
 
 ---
 
-7. ## Overall Code
+8. ## Aligning With Target Function
+
+---
+
+9. ## Main Function
+
+In this section, all the function will be connected by calling at its sequence so that NAO will do all its motion in one go. In this main function is also the throwing stance and action. 
+
+To begin, all the necessary modules are initilized which are required in order for the other function to work.
+
+```py
+        motion_proxy = ALProxy("ALMotion", robot_ip, port)
+        posture_proxy = ALProxy("ALRobotPosture", robot_ip, port)
+        tts_proxy = ALProxy("ALTextToSpeech", robot_ip, port)
+        video_proxy = ALProxy("ALVideoDevice", robot_ip, port)
+```
+Then, initially NAO will wake up from its rest and go its ready posture while looking down. The aim for for looking down is so that it can find the target better as it is on the ground.
+
+**The head can be programmed to look forward at any angle that are possible**
+
+Then, NAO will say *Looking for the green target* and call the target finding function, where in this code its called the ` detect_green_target(video_proxy)`
+
+---
+
+10. ## Overall Code
 
 
 
