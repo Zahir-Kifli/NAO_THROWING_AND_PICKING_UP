@@ -14,7 +14,10 @@
 5. [Target Finding](#Target-Findng)
 6. [Picking up](#Picking-Up)
 7. [Reference](Reference)
-<div style="height: 2px; background-color: white; margin: 20px 0;"></div>
+
+
+<hr style="border: 0; height: 5px; background-color: white; margin: 20px 0;">
+
 
 
 1. ## About This Project
@@ -35,7 +38,7 @@
 6. ## Picking Up
 
 ---
-7. ## References
+7. ## Reference
 
 
 
