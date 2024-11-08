@@ -29,7 +29,7 @@ Created from University Brunei Darussalam (UBD) Students:
 
 This code is part of an assignment for the module Intelligent Systems Lab, ZA-3201. Where the programming Language used was python. The code involves a humanoid robot called "NAO" from Aldebaran. NAO can be used to do various tasks or to used as it is with its default programmed settings. 
 
---
+---
 
 2. ## Overview
 
