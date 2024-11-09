@@ -23,7 +23,7 @@
 
 1. ## About This Project
 
-Created by University Brunei Darussalam (UBD) Students:
+Created by Universiti Brunei Darussalam (UBD) Students:
 - 21B4059
 - 22B6011
 
