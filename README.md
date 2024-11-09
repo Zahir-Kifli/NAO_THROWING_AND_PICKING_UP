@@ -43,14 +43,69 @@ Thus, the objectives are:
 ---
 
 3. ## Project Files Description
+   
+- **`NAO_throwing_and_picking_up.py`**: Main script that controls the NAO robot, guiding it through picking up the ball, finding the target, aligning with the target, and throwing the ball.
+-  **`requirements.txt`**: Contains the required Python libraries and versions for running the project.
+- **Helper functions**: Additional functions for controlling motion, calculating distances, and adjusting throwing parameters.
 
 ---
 
 4. ## Getting Started
+### Prerequisites
+
+- **Python 2.7** (required for NAO robot)
+- **NaoQi SDK** (NAO’s communication library)
+- **OpenCV** (for image processing)
+- **NumPy** (for numerical operations)
+
+### Setup
+
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/your-username/NAO-Throwing-Picking-Up.git
+   cd NAO-Throwing-Picking-Up
+   
+2. Install the required dependencies using requirements.txt:   
+  ```bash
+  pip install -r requirements.txt
+```
+3. Ensure your NAO robot is connected to the same network as your PC. You’ll need to configure the robot’s IP and port in the script.
 
 ---
 
 5. ## Picking Up Function
+The **Picking Up Function** involves controlling NAO’s arm to grab a ball and secure it in its hand. Here is a line-by-line breakdown of the code:
+
+```py
+# Set the stiffness for the wrist to control the arm movement
+motion_proxy.setStiffnesses("LWristYaw", 1.0)
+```
+This line sets the stiffness of the left wrist (LWristYaw) to 1.0, making the wrist rigid enough for precise movements when picking up the ball. The 1.0 value indicates full stiffness (fully controlled).
+```py
+# Move the wrist to a specific angle to face backwards and grab the ball
+motion_proxy.setAngles("LWristYaw", 2.0, 0.2)
+```
+This line sets the angle of the left wrist (LWristYaw) to 2.0 radians, positioning the wrist in a way that it can grab the ball. The 0.2 value controls the speed of the movement (smooth, but not too fast).
+```py
+# Close the hand to ensure the ball is held securely
+motion_proxy.setStiffnesses("LHand", 1.0)
+motion_proxy.setAngles("LHand", 0.0, 0.2)
+```
+These two lines first set the stiffness of the left hand (LHand) to 1.0 to hold the ball tightly. Then, the LHand angle is set to 0.0, which would close the hand to grip the ball securely, at a moderate speed (0.2).
+```py
+# Ensure the arm is positioned securely to hold the ball
+motion_proxy.setStiffnesses("LArm", 1.0)
+motion_proxy.setAngles("LShoulderPitch", 0.5, 0.2)
+motion_proxy.setAngles("LElbowYaw", -1.0, 0.2)
+
+```
+These lines set the stiffness for the left arm (LArm) and adjust the angles of the shoulder (LShoulderPitch) and elbow (LElbowYaw) to a position where the arm is bent and secure enough to hold the ball.
+```py
+# Hold the ball for a brief moment (simulate picking up)
+time.sleep(0.5)
+```
+
+The time.sleep(0.5) causes the program to pause for 0.5 seconds, simulating the moment NAO is holding the ball before proceeding with any further actions.
 
 ---
 
@@ -182,6 +237,40 @@ With all the values, its median is obtain by using the numpy tool to enchance th
 
 7. ## Throwing Parameters Function
 
+The **Throwing Parameters Function** calculates the optimal angles and speed for throwing the ball based on the target's distance. Here's a line-by-line breakdown of the code:
+
+### `calculate_throw_parameters(distance)` Function:
+
+This function calculates the shoulder pitch angle based on the distance to the target, adjusting the throw's aggressiveness. It also sets the throwing speed percentage accordingly.
+
+```python
+def calculate_throw_parameters(distance):
+    """
+    Calculate shoulder pitch angle based on distance with more aggressive angles
+    """
+    if distance < 50:  # Close range
+        shoulder_pitch = 1.4857  # More forward angle
+        speed_percentage = 20
+    elif distance < 100:  # Medium-close range
+        shoulder_pitch = 1.7857
+        speed_percentage = 40
+    elif distance < 150:  # Medium range
+        shoulder_pitch = 1.8857
+        speed_percentage = 60
+    elif distance < 200:  # Medium-far range
+        shoulder_pitch = 1.9857
+        speed_percentage = 80  
+    else:  # Far range
+        shoulder_pitch = 2.0857  # Maximum forward angle
+        speed_percentage = 100
+    
+    return shoulder_pitch, speed_percentage
+```
+- Close Range (distance < 50): A more forward shoulder pitch angle (1.4857) and low speed percentage (20%).
+- Medium-Close Range (50 ≤ distance < 100): A slightly raised shoulder pitch (1.7857) and moderate speed percentage (40%).
+- Medium Range (100 ≤ distance < 150): A further shoulder pitch (1.8857) and faster speed (60%).
+- Medium-Far Range (150 ≤ distance < 200): An even steeper shoulder pitch (1.9857) and a higher speed (80%).
+- Far Range (distance ≥ 200): The most aggressive shoulder pitch (2.0857) and maximum throwing speed (100%).
 ---
 
 8. ## Aligning With Target Function
