@@ -15,7 +15,7 @@
 6. [Target Finding Function](#Target-Finding-Function)
 7. [Throwing Parameters Function](#Throwing-Parameters-Function)
 8. [Aligning With Target Function](#Aligning-With-Target-Function)
-9. [Main Function](#🟠Main-Function)
+9. [Main Function](#🟠MainFunction)
 
 
 <hr style="border: 0; height: 5px; background-color: #f0f0f0; margin: 20px 0;">
