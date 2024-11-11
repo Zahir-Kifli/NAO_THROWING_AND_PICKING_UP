@@ -23,6 +23,9 @@
 
 1. ## About This Project
 
+![Group Members](Group-Picture.jpg)
+
+
 Created by Universiti Brunei Darussalam (UBD) Students:
 - 21B4059
 - 22B6011
