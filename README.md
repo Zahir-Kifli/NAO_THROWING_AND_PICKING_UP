@@ -8,7 +8,7 @@
 
 # **CONTENTS**
 1. [About This Project](#🔴About-\space-This-\space-Project)
-2. [Overview](#Overview)
+2. [Overview](#-🟢-${\color{green}-Overview}$)
 3. [Project Files Description](#Project-Files-Description)
 4. [Getting Started](#Getting-Started)
 5. [Picking Up Function](#Picking-Up-Function)
