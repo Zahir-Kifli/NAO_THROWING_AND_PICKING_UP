@@ -24,14 +24,14 @@
 1. ## About This Project
 
 <div align="center">
-  <img src="GroupPicture" alt="Group Members" width="300"/>
+  <img src="GroupPicture.jpg" alt="Group Members" width="300"/>
 </div>
-
 
 
 Created by Universiti Brunei Darussalam (UBD) Students:
 - 21B4059
 - 22B6011
+
 
 This code is part of an assignment for the module Intelligent Systems Lab, ZA-3201. Where the programming Language used was python. The code involves a humanoid robot called "NAO" from Aldebaran. NAO can be used to do various tasks or to used as it is with its default programmed settings. 
 
