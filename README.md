@@ -7,7 +7,7 @@
 ---
 
 # **CONTENTS**
-1. [About This Project](#About-This-Project)
+1. [About This Project](#🔴About-\space-This-\space-Project)
 2. [Overview](#Overview)
 3. [Project Files Description](#Project-Files-Description)
 4. [Getting Started](#Getting-Started)
@@ -15,7 +15,7 @@
 6. [Target Finding Function](#Target-Finding-Function)
 7. [Throwing Parameters Function](#Throwing-Parameters-Function)
 8. [Aligning With Target Function](#Aligning-With-Target-Function)
-9. [Main Function](#Main-Function)
+9. [Main Function](#🟠Main-\space-Function)
 
 
 <hr style="border: 0; height: 5px; background-color: #f0f0f0; margin: 20px 0;">
