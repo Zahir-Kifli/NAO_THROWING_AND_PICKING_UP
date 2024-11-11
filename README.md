@@ -20,12 +20,16 @@
 
 <hr style="border: 0; height: 5px; background-color: #f0f0f0; margin: 20px 0;">
 
+<div align="center">
 
-1. ## About This Project  🔴
+## ${\color{red} 🔴About  \space This \space Project}$
+
+</div>
 
 <div align="center">
   <img src="GroupPicture.jpg" alt="Group Members" width="300"/>
 </div>
+
 
 
 Created by Universiti Brunei Darussalam (UBD) Students:
@@ -37,7 +41,11 @@ This code is part of an assignment for the module Intelligent Systems Lab, ZA-32
 
 ---
 
-2. ## Overview  🟢
+<div align="center">
+  
+## ${\color{green} 🟢Overview}$  
+
+</div>
 
 In this project, NAO will perform a programmed sequence that involves grasping a soft ball, moving its arm to simulate a throwing motion, and releasing the ball towards a designated target area. This project will highlight NAO's capabilities in movement and interaction using Python programming.
 
