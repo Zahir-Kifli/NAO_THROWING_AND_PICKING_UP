@@ -1,7 +1,7 @@
 # NAO_THROWING_AND_PICKING_UP
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/6fb66904-c973-4e02-b37a-a3b642910db3" alt="Description" width="300"/>
+  <img src="https://github.com/user-attachments/assets/6fb66904-c973-4e02-b37a-a3b642910db3" alt="NAO Robot" width="300"/>
 </div>
 
 ---
@@ -23,7 +23,10 @@
 
 1. ## About This Project
 
-![Group Members](Group-Picture.jpg)
+<div align="center">
+  <img src="GroupPicture" alt="Group Members" width="300"/>
+</div>
+
 
 
 Created by Universiti Brunei Darussalam (UBD) Students:
