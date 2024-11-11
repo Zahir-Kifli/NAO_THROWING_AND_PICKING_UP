@@ -21,7 +21,7 @@
 <hr style="border: 0; height: 5px; background-color: #f0f0f0; margin: 20px 0;">
 
 
-1. ## About This Project
+1. ## About This Project  🔴
 
 <div align="center">
   <img src="GroupPicture.jpg" alt="Group Members" width="300"/>
@@ -37,7 +37,7 @@ This code is part of an assignment for the module Intelligent Systems Lab, ZA-32
 
 ---
 
-2. ## Overview
+2. ## Overview  🟢
 
 In this project, NAO will perform a programmed sequence that involves grasping a soft ball, moving its arm to simulate a throwing motion, and releasing the ball towards a designated target area. This project will highlight NAO's capabilities in movement and interaction using Python programming.
 
@@ -48,7 +48,7 @@ Thus, the objectives are:
 
 ---
 
-3. ## Project Files Description
+3. ## Project Files Description  🟡
    
 - **`NAO_throwing_and_picking_up.py`**: Main script that controls the NAO robot, guiding it through picking up the ball, finding the target, aligning with the target, and throwing the ball.
 -  **`requirements.txt`**: Contains the required Python libraries and versions for running the project.
@@ -56,7 +56,7 @@ Thus, the objectives are:
 
 ---
 
-4. ## Getting Started
+4. ## Getting Started  🟠
 ### Prerequisites
 
 - **Python 2.7** (required for NAO robot)
@@ -79,7 +79,7 @@ Thus, the objectives are:
 
 ---
 
-5. ## Picking Up Function
+5. ## Picking Up Function  🔵
 The **Picking Up Function** involves controlling NAO’s arm to grab a ball and secure it in its hand. Here is a line-by-line breakdown of the code:
 
 ```py
@@ -115,7 +115,7 @@ The time.sleep(0.5) causes the program to pause for 0.5 seconds, simulating the 
 
 ---
 
-6. ## Target Finding Function
+6. ## Target Finding Function  🔴
 
 In this section, NAO's target finding function will be explained. For this code, the target has been set to a green board with 40 cm width. By using Opencv library, this code uses HSV values to retrieve the target from NAO's camera.
 
@@ -241,7 +241,7 @@ With all the values, its median is obtain by using the numpy tool to enchance th
 
 ---
 
-7. ## Throwing Parameters Function
+7. ## Throwing Parameters Function  🟢
 
 The **Throwing Parameters Function** calculates the optimal angles and speed for throwing the ball based on the target's distance. Here's a line-by-line breakdown of the code:
 
@@ -279,7 +279,7 @@ def calculate_throw_parameters(distance):
 - Far Range (distance ≥ 200): The most aggressive shoulder pitch (2.0857) and maximum throwing speed (100%).
 ---
 
-8. ## Aligning With Target Function
+8. ## Aligning With Target Function  🟡
 
 In this section, the NAO's code for aligning with the target will be discussed. NAO moves with a tolerance of 10% if it is not aligned with the target. This tolerance is the threshold to determine if NAO is centered enough with the target. IF NAO is centered it say *Target is centered*.
 
@@ -329,7 +329,7 @@ if there was any error on this function, the function will return False, thus, i
 
 ---
 
-9. ## Main Function
+9. ## Main Function  🟠
 
 In this section, all the function will be connected by calling it in order so that NAO will do all its motion in one go. Additonally, in this function, it also includes the throwing stance and action. 
 
