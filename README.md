@@ -27,7 +27,7 @@
 </div>
 
 <div align="center">
-  <img src="GroupPicture.jpg" alt="Group Members" width="300"/>
+  <img src="Folder/GroupPicture.jpg" alt="Group Members" width="300"/>
 </div>
 
 
