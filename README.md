@@ -54,6 +54,12 @@ Thus, the objectives are:
 2. NAO to find a designated target
 3. NAO to throw the ball to the target
 
+Opperational FlowChart:   
+
+<div align="center">
+  <img src="Folder/Opperational Chart.png" alt="Opperational FLowChart" width="1000"/>
+</div>
+
 ---
 
 <div align="center">
